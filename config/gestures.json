@@ -1,0 +1,162 @@
+{
+  "smoothing": {
+    "window_frames": 7,
+    "idle_frames": 5,
+    "min_switch_seconds": 0.4
+  },
+  "gestures": {
+    "kai": {
+      "enabled": true,
+      "priority": 105,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "max_palm_y": 0.98,
+        "min_hand_separation": 0.9,
+        "extension_ratio": 1.05,
+        "min_extended_fingers": 2,
+        "max_gap_to_head": 0.85,
+        "max_palm_below_eyes": 0.25,
+        "min_jaw_open": 0.18,
+        "min_mouth_gap": 0.05
+      }
+    },
+    "cinema": {
+      "enabled": true,
+      "priority": 100,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "max_palm_y": 0.98,
+        "min_hand_separation": 0.9,
+        "extension_ratio": 1.05,
+        "min_extended_fingers": 2
+      }
+    },
+    "tamer": {
+      "enabled": true,
+      "priority": 95,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "wrist_radius": 0.75
+      }
+    },
+    "sixseven": {
+      "enabled": true,
+      "priority": 90,
+      "activation_frames": 3,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "max_palm_y": 0.98,
+        "min_hand_separation": 0.9,
+        "extension_ratio": 1.05,
+        "min_extended_fingers": 2
+      }
+    },
+    "iguessbro": {
+      "enabled": true,
+      "priority": 88,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "eye_radius": 0.22
+      }
+    },
+    "baby": {
+      "enabled": true,
+      "priority": 85,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "mouth_radius": 0.3
+      }
+    },
+    "calm": {
+      "enabled": true,
+      "priority": 80,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "fold_ratio": 1.05,
+        "min_folded_fingers": 3,
+        "chin_dx": 0.4,
+        "chin_dy_min": -0.2,
+        "chin_dy_max": 0.5
+      }
+    },
+    "handshake": {
+      "enabled": true,
+      "priority": 70,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "fold_ratio": 1.05,
+        "min_folded_fingers": 3
+      }
+    },
+    "shush": {
+      "enabled": true,
+      "priority": 60,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "mouth_radius": 0.145,
+        "min_finger_length": 0.075
+      }
+    },
+    "mewing": {
+      "enabled": true,
+      "priority": 50,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "chin_radius": 0.19
+      }
+    },
+    "shock": {
+      "enabled": true,
+      "priority": 40,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "min_jaw_open": 0.45,
+        "min_brow_raise": 0.3,
+        "require_raised_brows": true,
+        "min_mouth_gap": 0.095
+      }
+    },
+    "son": {
+      "enabled": true,
+      "priority": 35,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "min_side": 0.35,
+        "min_difference": 0.25,
+        "max_jaw_open": 0.3
+      }
+    },
+    "smile": {
+      "enabled": true,
+      "priority": 30,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "min_smile": 0.55,
+        "max_jaw_open": 0.45,
+        "min_mouth_width": 0.49,
+        "max_mouth_gap": 0.085
+      }
+    },
+    "tilt": {
+      "enabled": true,
+      "priority": 20,
+      "activation_frames": 5,
+      "cooldown_seconds": 0.0,
+      "params": {
+        "min_slope": 0.18
+      }
+    }
+  }
+}

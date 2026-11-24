@@ -1,8 +1,11 @@
 """Synthetic landmark checks for the 6-7 pose boundaries and priority."""
+import sys
+from pathlib import Path
+sys.path[:0] = [str(Path(__file__).resolve().parents[1]), str(Path(__file__).resolve().parent)]
 import unittest
 from types import SimpleNamespace as NS
 import numpy as np
-from app import get_gesture, is_sixseven
+from gesture_recognition import get_gesture, is_sixseven
 
 
 def point(x, y):

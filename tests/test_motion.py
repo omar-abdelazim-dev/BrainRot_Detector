@@ -1,7 +1,10 @@
+import sys
+from pathlib import Path
+sys.path[:0] = [str(Path(__file__).resolve().parents[1]), str(Path(__file__).resolve().parent)]
 import unittest
 from gesture_motion import SixSevenMotion
 from test_gestures import hand, face, NS
-from app import get_gesture
+from gesture_recognition import get_gesture
 
 
 class MotionTests(unittest.TestCase):
@@ -108,3 +111,42 @@ class ReferencePoseTests(unittest.TestCase):
         hands=[palm_up(.72,.88)]
         for i in range(20):
             self.assertEqual(detector.filter(self.classify(hands),hands,i*.05),'idle')
+
+
+class RobustBounceTests(unittest.TestCase):
+    """6-7 should survive the tracking glitches that fast bouncing causes."""
+    def test_hand_dropout_does_not_erase_progress(self):
+        from gesture_motion import resolve
+        m = SixSevenMotion()
+        resolve(['sixseven'], m, [hand(.2, .70), hand(.8, .80)], 0.0)
+        resolve(['sixseven'], m, [hand(.2, .75)], .05)                 # one hand lost for a frame
+        resolve(['sixseven'], m, [hand(.2, .80), hand(.8, .70)], .10)  # re-anchors on the swap
+        self.assertEqual(resolve(['sixseven'], m, [hand(.2, .70), hand(.8, .80)], .30), 'sixseven')
+
+    def test_blurred_frames_stay_sixseven_once_confirmed(self):
+        from gesture_motion import resolve
+        m = SixSevenMotion()
+        resolve(['sixseven'], m, [hand(.2, .70), hand(.8, .80)], 0.0)
+        self.assertEqual(resolve(['sixseven'], m, [hand(.2, .80), hand(.8, .70)], .2), 'sixseven')
+        # Motion blur: pose not recognised, or fingers look folded (fist).
+        self.assertEqual(resolve([], m, [hand(.2, .75), hand(.8, .75)], .3), 'sixseven')
+        self.assertEqual(resolve(['handshake'], m, [hand(.2, .75, False)], .4), 'sixseven')
+
+    def test_higher_priority_gesture_interrupts(self):
+        from gesture_motion import resolve
+        m = SixSevenMotion()
+        resolve(['sixseven'], m, [hand(.2, .70), hand(.8, .80)], 0.0)
+        resolve(['sixseven'], m, [hand(.2, .80), hand(.8, .70)], .2)
+        self.assertEqual(resolve(['cinema', 'sixseven'], m, [hand(.2, .3), hand(.8, .3)], .3, {'cinema'}), 'cinema')
+
+    def test_hold_expires_after_stopping(self):
+        from gesture_motion import resolve
+        m = SixSevenMotion()
+        resolve(['sixseven'], m, [hand(.2, .70), hand(.8, .80)], 0.0)
+        resolve(['sixseven'], m, [hand(.2, .80), hand(.8, .70)], .2)
+        self.assertEqual(resolve([], m, [], 1.5), 'idle')
+
+    def test_small_bounce_now_counts(self):
+        m = SixSevenMotion()
+        m.filter('sixseven', [hand(.2, .700), hand(.8, .725)], 0.0)
+        self.assertEqual(m.filter('sixseven', [hand(.2, .720), hand(.8, .700)], .2), 'sixseven')

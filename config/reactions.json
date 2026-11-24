@@ -1,0 +1,18 @@
+{
+  "reactions": [
+    {"id": "shush", "gesture": "shush", "title": "SHHH...", "hint": "Finger to lips", "accent": "#c3f879", "image": "shush"},
+    {"id": "mewing", "gesture": "mewing", "title": "MEWING", "hint": "Finger to chin", "accent": "#c4a2ff", "image": "mewing"},
+    {"id": "shock", "gesture": "shock", "title": "WHAT?!", "hint": "Jaw drop + brows", "accent": "#ffac7f", "image": "shock"},
+    {"id": "sixseven", "gesture": "sixseven", "title": "6 - 7", "hint": "Palm up + bounce", "accent": "#80d9ff", "image": "sixseven"},
+    {"id": "smile", "gesture": "smile", "title": "W RIZZ", "hint": "Big smile", "accent": "#ffa6d3", "image": "smile", "fallback_image": "mewing"},
+    {"id": "tilt", "gesture": "tilt", "title": "SIDE EYE", "hint": "Tilt your head", "accent": "#f5dc85", "image": "tilt", "fallback_image": "mewing"},
+    {"id": "cinema", "gesture": "cinema", "title": "ABSOLUTE CINEMA", "hint": "Palms beside head", "accent": "#e4e4e4", "image": "cinema"},
+    {"id": "handshake", "gesture": "handshake", "title": "CAT HANDSHAKE", "hint": "Hold out a fist", "accent": "#ffbc83", "image": "handshake"},
+    {"id": "calm", "gesture": "calm", "title": "STAY CALM", "hint": "Fist under chin", "accent": "#9ed9e8", "image": "calm"},
+    {"id": "son", "gesture": "son", "title": "SON", "hint": "Smirk", "accent": "#ffd36e", "image": "son"},
+    {"id": "baby", "gesture": "baby", "title": "GIGGLE", "hint": "Hand over mouth", "accent": "#f2f2f2", "image": "baby"},
+    {"id": "iguessbro", "gesture": "iguessbro", "title": "I GUESS BRO", "hint": "Fingers on eyes", "accent": "#b9a07a", "image": "iguessbro"},
+    {"id": "kai", "gesture": "kai", "title": "KAI CELEB", "hint": "Hands by ears + tongue out", "accent": "#ff5a5a", "image": "kai"},
+    {"id": "tamer", "gesture": "tamer", "title": "TAMER HOSNY", "hint": "Tap your wrist", "accent": "#7fd1b9", "image": "tamer"}
+  ]
+}
